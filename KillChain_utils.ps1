@@ -32,7 +32,7 @@ function HasCloudMX
         }
 
         $results = Resolve-DnsName -Name $Domain -Type MX -DnsOnly -NoHostsFile -NoIdn -ErrorAction SilentlyContinue |
-               Select-Object -ExpandProperty nameexchange
+               Select-Object -ExpandProperty nameexchange -ErrorAction SilentlyContinue 
 
         # Normalize $filter into an array
         if (-not ($filter -is [System.Collections.IEnumerable])) {
